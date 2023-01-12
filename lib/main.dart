@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
       darkTheme: ThemeData(brightness: Brightness.dark),
       home: signup_screen(),
       debugShowCheckedModeBanner: false,
+
     );
   }
   }

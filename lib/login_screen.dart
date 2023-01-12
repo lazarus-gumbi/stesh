@@ -1,5 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:stesh/home_screen.dart';
 import 'package:stesh/signup_screen.dart';
 
 class login_screen extends StatefulWidget {
@@ -18,6 +20,7 @@ class _login_screenState extends State<login_screen> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIOverlays([]);
     return SafeArea(
         child: Scaffold(
       body: SingleChildScrollView(
@@ -137,7 +140,13 @@ class _login_screenState extends State<login_screen> {
                       children: [
                         Expanded(
                             child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => home_screen()),
+                            );
+                          },
                           style: ElevatedButton.styleFrom(
                             shape: StadiumBorder(),
                             elevation: 0,
