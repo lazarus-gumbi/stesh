@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:stesh/login_screen.dart';
 
 class signup_screen extends StatefulWidget {
@@ -21,6 +22,7 @@ class _signup_screenState extends State<signup_screen> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
     return SafeArea(
         child: Scaffold(
       body: SingleChildScrollView(
@@ -32,30 +34,27 @@ class _signup_screenState extends State<signup_screen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Expanded(
-                flex: 2,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                        child: Image.asset(
-                      "assets/images/logo.png",
-                      width: 100,
-                      fit: BoxFit.fill,
-                    )),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    RichText(
-                        text: TextSpan(
-                            text: 'Stesh!',
-                            style: TextStyle(
-                              color: Color.fromRGBO(255, 167, 0, 1),
-                              fontSize: 30,
-                              fontWeight: FontWeight.w700,
-                            )))
-                  ],
-                ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                      child: Image.asset(
+                    "assets/images/logo.png",
+                    width: 100,
+                    fit: BoxFit.fill,
+                  )),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  RichText(
+                      text: TextSpan(
+                          text: 'Stesh!',
+                          style: TextStyle(
+                            color: Color.fromRGBO(255, 167, 0, 1),
+                            fontSize: 30,
+                            fontWeight: FontWeight.w700,
+                          )))
+                ],
               ),
               Expanded(
                 flex: 4,
@@ -199,31 +198,31 @@ class _signup_screenState extends State<signup_screen> {
                   ]),
                 ),
               ),
-              Expanded(
-                flex: 1,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("I already have an account | "),
-                    TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => login_screen()),
-                          );
-                        },
-                        style: TextButton.styleFrom(
-                            padding: EdgeInsets.zero,
-                            minimumSize: Size(40, 30),
-                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                            alignment: Alignment.centerLeft),
-                        child: Text("Login",
-                            style: TextStyle(
-                              color: Color.fromRGBO(255, 167, 0, 1),
-                            ))),
-                  ],
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "I already have an account | ",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => login_screen()),
+                        );
+                      },
+                      style: TextButton.styleFrom(
+                          padding: EdgeInsets.zero,
+                          minimumSize: Size(40, 30),
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          alignment: Alignment.centerLeft),
+                      child: Text("Login",
+                          style: TextStyle(
+                            color: Color.fromRGBO(255, 167, 0, 1),
+                          ))),
+                ],
               )
             ],
           ),

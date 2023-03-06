@@ -1,7 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:stesh/home_screen.dart';
+import 'package:stesh/main_page.dart';
 import 'package:stesh/signup_screen.dart';
 
 class login_screen extends StatefulWidget {
@@ -20,7 +20,6 @@ class _login_screenState extends State<login_screen> {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIOverlays([]);
     return SafeArea(
         child: Scaffold(
       body: SingleChildScrollView(
@@ -139,30 +138,31 @@ class _login_screenState extends State<login_screen> {
                     Row(
                       children: [
                         Expanded(
-                            child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => home_screen()),
-                            );
-                          },
-                          style: ElevatedButton.styleFrom(
-                            shape: StadiumBorder(),
-                            elevation: 0,
-                            primary: Color.fromRGBO(255, 167, 0, 1),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(15.0),
-                            child: Text(
-                              'Login',
-                              style: TextStyle(
-                                  fontSize: 20,
-                                  color: Color(0xff333333),
-                                  fontWeight: FontWeight.w700),
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => MainPage()),
+                              );
+                            },
+                            style: ElevatedButton.styleFrom(
+                              shape: StadiumBorder(),
+                              elevation: 0,
+                              primary: Color.fromRGBO(255, 167, 0, 1),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(15.0),
+                              child: Text(
+                                'Login',
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    color: Color(0xff333333),
+                                    fontWeight: FontWeight.w700),
+                              ),
                             ),
                           ),
-                        )),
+                        ),
                       ],
                     ),
                   ]),
@@ -173,7 +173,10 @@ class _login_screenState extends State<login_screen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("I do not have an account | "),
+                    Text(
+                      "I do not have an account | ",
+                      style: TextStyle(color: Colors.white),
+                    ),
                     TextButton(
                         onPressed: () {
                           Navigator.push(
