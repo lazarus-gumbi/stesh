@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:grouped_list/grouped_list.dart';
 
@@ -103,7 +105,9 @@ class _TravelHistoryState extends State<TravelHistory> {
                             style: TextStyle(color: Color(0xff333333)),
                           ),
                           TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                showDriverAlert(context);
+                              },
                               style: TextButton.styleFrom(
                                   padding: EdgeInsets.zero,
                                   minimumSize: Size(40, 30),
@@ -218,4 +222,174 @@ class _TravelHistoryState extends State<TravelHistory> {
       ),
     );
   }
+}
+
+showDriverAlert(context) {
+  showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          backgroundColor: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(12.0),
+            ),
+          ),
+          contentPadding: EdgeInsets.only(
+            top: 10.0,
+          ),
+          title: Text(
+            "Meet Your Driver",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+                color: Color(0xff333333)),
+          ),
+          content: Container(
+            height: 300,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Name:",
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xff333333)),
+                      ),
+                      Text(
+                        "Sabelo Dlamini",
+                        style:
+                            TextStyle(fontSize: 18, color: Color(0xff333333)),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Phone:",
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xff333333)),
+                      ),
+                      Text(
+                        "7800 0000",
+                        style:
+                            TextStyle(fontSize: 18, color: Color(0xff333333)),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Car:",
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xff333333)),
+                      ),
+                      Text(
+                        "Toyota Corolla",
+                        style:
+                            TextStyle(fontSize: 18, color: Color(0xff333333)),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Color:",
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xff333333)),
+                      ),
+                      Text(
+                        "Red",
+                        style:
+                            TextStyle(fontSize: 18, color: Color(0xff333333)),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "License Plate #:",
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xff333333)),
+                      ),
+                      Text(
+                        "ASD 123 AH",
+                        style:
+                            TextStyle(fontSize: 18, color: Color(0xff333333)),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Review:",
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xff333333)),
+                      ),
+                      Row(
+                        children: List.generate(5, (index) {
+                          return Icon(
+                            index <= 2 ? Icons.star : Icons.star_border,
+                            color: Color.fromRGBO(255, 174, 0, 1),
+                          );
+                        }),
+                      )
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      CircleAvatar(
+                        radius: 25,
+                        backgroundColor: Color.fromRGBO(241, 194, 91, 0.658),
+                        child: IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.call,
+                              color: Color.fromRGBO(255, 174, 0, 1),
+                            )),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ),
+        );
+      });
 }
